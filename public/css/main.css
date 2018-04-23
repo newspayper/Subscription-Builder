@@ -1,0 +1,68 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+#hero > button {
+	margin-bottom: 20px;
+}
+
+#bloc-selection{
+	/* */
+}
+
+#search-bar {
+		/*
+	background-color: black;
+	padding: 10px;
+	margin-right: 60px;
+	margin-left: 60px;	 */
+	align-content: center;
+
+}
+
+#image-une {
+	margin-top: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 20px;
+}
+
+#logo-publication{
+	margin: 30px;
+}
+
+#voir{
+	margin: 10px;
+}
+
+#ajouter{
+	margin: 10px;
+}
+
+#sliders{
+	text-align: left;
+	padding-left: 40px;
+}
+
+/*
+.hero {
+	height: 400px;
+}
+
+*/
+
+#right-well{
+	min-height: 100vh;	
+}
+
+.grille-unes {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+}

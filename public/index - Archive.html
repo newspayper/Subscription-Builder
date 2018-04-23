@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Abonnements Flexibles</title>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/4.12.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/4.12.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/4.12.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/4.12.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/4.12.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+
+  </head>
+  <body>
+  
+    <div class="ui padded center aligned grid">
+
+<!-- TOP -->
+
+      <div class="teal row">
+        <h1>LA PRESSE QUE JE VEUX QUAND JE VEUX OÙ JE VEUX</h1>
+      </div>
+        
+        <div class="sixteen wide column" id="hero">
+
+            <button class="ui big teal button">Composer mon abonnement</button>  
+            <button class="ui big basic teal button">En savoir plus</button>  
+        </div>
+
+      <div class="ui divider"></div>
+
+<!-- SEARCH + SELECTOR -->
+
+      <div class="sixteen wide column">
+        
+        <h3 class="ui block header">
+          Etape 1 > Je sélectionne mes titres
+        </h3>
+      
+      </div>
+
+      <div class="stackable two column row">
+        <div class="five wide column" id="bloc-selection">
+          
+          <div>
+
+            <div class="ui search" id="search-bar">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="Chercher titres...">
+                <i class="black  search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+
+            <!-- Script Search from Local Source -->
+            <script type="text/javascript">
+              var categoryContent = [
+                { category: 'Hebdomadaire',  title: 'Vraiment' },
+                { category: 'Hebdomadaire', title: 'Le Canard Enchaîné' },
+                { category: 'Hebdomadaire', title: 'Courrier International' },
+                { category: 'Hebdomadaire', title: 'Le 1' },
+                { category: 'Bimensuel', title: 'Society' },
+                { category: 'Mensuel', title: 'SO FOOT' },
+                { category: 'Mensuel', title: 'Sofilm' }, 
+                { category: 'Trimestriel', title: 'Usbek & Rica' },  
+                //etc       
+              ];
+              $('.ui.search') 
+                .search({
+                  type: 'category',
+                  source: categoryContent
+                })
+              ;
+            </script>
+
+          </div> 
+
+
+            <div class="blurring dimmable image" id="image-une">
+              <div class="ui inverted dimmer">
+                <div class="content">
+                   <div class="center">
+                    <div class="ui blue button" id="voir">Voir</div>
+                    <div class="ui green button" id="ajouter">Ajouter</div>
+                  </div>
+                </div>
+              </div>
+              <img class="ui image" src="https://www.lecanardenchaine.fr/wp-content/uploads/2018/04/zdhffehiuzf24543634.png">      
+            </div>
+
+          
+            <script type="text/javascript">
+              $('.image').dimmer({
+                on: 'hover'
+              });          
+            </script>   
+      
+
+          <div id="logo-publication">
+            <img class="ui rounded image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Logo_Canard_encha%C3%AEn%C3%A9.svg/1280px-Logo_Canard_encha%C3%AEn%C3%A9.svg.png"> 
+          </div>     
+
+          <button class="ui green button">Ajouter</button>
+
+
+
+        </div>
+        
+        <div class="eleven wide column">
+          <h2>Votre sélection</h2>
+          
+          <div class="grille-unes">
+            
+            <div class="three wide column">
+     
+                <div class="blurring dimmable image">
+                  <div class="ui inverted dimmer">
+                    <div class="content">
+                       <div class="center">
+                        <div class="ui red compact button">
+                          Retirer
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <img class="ui image" src="https://www.lecanardenchaine.fr/wp-content/uploads/2018/04/zdhffehiuzf24543634.png">
+                </div>
+
+            </div>
+
+            <div class="three wide column">
+              <div class="blurring dimmable image">
+                <div class="ui inverted dimmer">
+                  <div class="content">
+                     <div class="center">
+                      <div class="ui red compact button">
+                        Retirer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image" src="https://www.society-magazine.fr/wp-content/uploads/2018/03/couv-76-593x782.jpg">
+              </div>
+            </div>
+
+            <div class="two wide column">
+              <div class="blurring dimmable image">
+                <div class="ui inverted dimmer">
+                  <div class="content">
+                     <div class="center">
+                      <div class="ui red compact button">
+                        Retirer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image" src="https://le1hebdo.fr/img/decouvrir/11.jpg">
+              </div>
+            </div>
+
+            <div class="two wide column">
+              <div class="blurring dimmable image">
+                <div class="ui inverted dimmer">
+                  <div class="content">
+                     <div class="center">
+                      <div class="ui red compact button">
+                        Retirer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image" src="https://static.usbeketrica.com/images/thumb_478xh/5a71dc8d63319.jpg">
+              </div>
+            </div>
+
+            <div class="two wide column">
+              <div class="blurring dimmable image">
+                <div class="ui inverted dimmer">
+                  <div class="content">
+                     <div class="center">
+                      <div class="ui red compact button">
+                        Retirer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image" src="https://tra.img.pmdstatic.net/scale/https.3A.2F.2Fwww.2Eprismashop.2Efr.2Fmedia.2Fcatalog.2Fproduct.2FG.2FE.2FGEO_469_2018_02_09.2Ejpg.3Fhash.3D1519844457/320xauto/quality/80/g-e-geo-469-2018-02-09-jpg.jpg?hash=1519844457">
+              </div>
+            </div>
+                   
+
+            <script type="text/javascript">
+              $('.image').dimmer({
+                on: 'hover'
+              });          
+            </script>   
+
+
+          </div>
+        </div>
+
+      </div>
+
+<!-- SLIDER + CONFIRM -->
+
+      <div class="stackable two column row">
+
+<!-- SLIDER -->
+
+        <div class="eight wide column">
+
+          <h3 class="ui block header">
+            Etape 2 > Je choisis ma fréquence de lecture idéale
+          </h3>
+
+          <div class="content">
+            <div class="ui form" id="sliders">
+              <div class="grouped fields">
+                Je lis...
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="throughput" checked="checked">
+                    <label>Un peu (1h par semaine)</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="throughput">
+                    <label>Beaucoup (3h par semaine)</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="radio" name="throughput">
+                    <label>Passionnement (1h par jour)</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui slider checkbox checked">
+                    <input type="radio" name="throughput">
+                    <label>À la folie (Plus d'une heure par jour)</label>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+
+        </div>
+
+<!-- CONFIRM -->
+
+        <div class=" eight wide column">
+
+          <h3 class="ui block header">
+            Etape 3 > Je valide mon abonnement
+          </h3>
+
+            <div class="content">
+              
+              <form class="ui form">
+                <div class="field">
+                  <input type="email" placeholder="email@example.com">
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox">
+                    <label>J'accepte de donner ma maison.</label>
+                  </div>
+                </div>
+                <button class="ui blue button" type="submit">Valider</button>  
+              </form>          
+            </div>
+
+        </div>
+
+      </div>
+
+      <div class="ui divider"></div>
+
+<!-- FEATURES -->
+
+      <div class="red row"><h2>FEATURES</h2></div>
+
+      <a href="features"></a>
+
+      <div class="stackable three column row">
+
+        <div class="column">
+          <h3 class="ui top attached red header">
+            Variété
+          </h3>
+          <div class="ui attached red segment">
+            <p>Sed laeditur hic coetuum magnificus splendor levitate paucorum incondita, ubi nati sunt non reputantium, sed tamquam indulta licentia vitiis ad errores lapsorum ac lasciviam. ut enim Simonides lyricus docet, beate perfecta ratione vieturo ante alia patriam esse convenit gloriosam.</p>
+          </div>
+        </div>
+        <div class=" column">
+          <h3 class="ui top attached red header">
+            Périodicité
+          </h3>
+          <div class="ui attached red segment">
+            <p>Sed laeditur hic coetuum magnificus splendor levitate paucorum incondita, ubi nati sunt non reputantium, sed tamquam indulta licentia vitiis ad errores lapsorum ac lasciviam. ut enim Simonides lyricus docet, beate perfecta ratione vieturo ante alia patriam esse convenit gloriosam.</p>
+          </div>
+        </div>
+        <div class=" column">
+          <h3 class="ui top attached red header">
+            Ubiquité
+          </h3>
+          <div class="ui attached red segment">
+            <p>Sed laeditur hic coetuum magnificus splendor levitate paucorum incondita, ubi nati sunt non reputantium, sed tamquam indulta licentia vitiis ad errores lapsorum ac lasciviam. ut enim Simonides lyricus docet, beate perfecta ratione vieturo ante alia patriam esse convenit gloriosam.</p>
+          </div>
+        </div>
+
+      </div>
+
+<!-- CONTACT -->
+
+      <div class="blue row"><h2>CONTACT</h2></div>
+
+      <div class="row">
+
+        <button class="ui circular facebook icon massive button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui circular twitter icon massive button">
+          <i class="twitter icon"></i>
+        </button>
+        <button class="ui circular linkedin icon massive button">
+          <i class="linkedin icon"></i>
+        </button>
+
+      </div>      
+
+
+<!-- END OF GRID DIV BELOW -->
+    </div>
+
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+
+  </body>
+</html>
