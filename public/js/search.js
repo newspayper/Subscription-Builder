@@ -1,3 +1,5 @@
+/*
+
 var categoryContent = [
 { category: 'Hebdomadaire',  title: 'Vraiment' },
 { category: 'Hebdomadaire', title: 'Le Canard Enchaîné' },
@@ -9,6 +11,9 @@ var categoryContent = [
 { category: 'Trimestriel', title: 'Usbek & Rica' },  
 //etc       
 ];
+
+*/
+
 
 
 

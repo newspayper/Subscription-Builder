@@ -11,6 +11,9 @@
 
   alert('JS fonctionne')
 
+
+
+
   var titresArray = [];
 
   var titresRef = firebase.database().ref().child("titres");
@@ -23,29 +26,16 @@
     var periodicite = snap.child("periodicite").val();
 
     titresArray.push(
-      "{ periodicite: '" + periodicite + "', " + "nom: '" + nom + "' }" );
-    alert(titresArray);
+      {
+        category:periodicite,
+        title:nom
+      }
+     
+    );
+
    });
 
-    alert('FIN' + titresArray);
 
-/*
-  firebase.database().ref('').on('value', function(snapshot) {
-    console.log(snapshot.val());
-  });
-
-  function snapshotToArray(snapshot) {
-      var returnArr = [];
-
-      snapshot.forEach(function(childSnapshot) {
-          var item = childSnapshot.val();
-          item.key = childSnapshot.key;
-
-          returnArr.push(item);
-      });
-
-      return returnArr;
-  };  */
 
     var categoryContent = [
     { category: 'Hebdomadaire',  title: 'Vraiment' },
@@ -58,4 +48,8 @@
     { category: 'Trimestriel', title: 'Usbek & Rica' },  
     //etc       
     ];
+
+
+  console.log(categoryContent);
+    console.log(titresArray);
 
